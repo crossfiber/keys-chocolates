@@ -53,7 +53,7 @@
             --text-dark: #1F2D1F;
             --text-body: #4A5C4A;
             --text-light: #FFFFFF;
-            --text-mute: rgba(251,246,236,0.78);
+            --text-mute: #EAF5E5;
             --shadow-soft: 0 2px 8px rgba(26,77,46,0.08);
             --shadow-mid: 0 8px 28px rgba(26,77,46,0.14);
             --shadow-deep: 0 18px 48px rgba(26,77,46,0.22);
@@ -85,7 +85,7 @@
             font-weight: 400;
             line-height: 1.08;
             letter-spacing: -0.005em;
-            color: var(--green-deep);
+            color: var(--green-dark);
         }
 
         a { color: inherit; text-decoration: none; }
@@ -264,7 +264,7 @@
         }
         .hero-eyebrow {
             display: inline-flex; align-items: center; gap: 10px;
-            background: rgba(91,184,91,0.12); color: var(--coral-deep);
+            background: rgba(228,56,128,0.10); color: var(--pink-deep);
             padding: 7px 16px; border-radius: 999px;
             font-size: 0.78rem; font-weight: 700;
             letter-spacing: 0.12em; text-transform: uppercase;
@@ -273,10 +273,10 @@
         .hero-eyebrow i { font-size: 0.8rem; }
         .hero h1 {
             font-size: clamp(2.6rem, 5.2vw, 4.6rem);
-            color: var(--green-deep);
+            color: var(--green-dark);
             margin-bottom: 22px;
         }
-        .hero h1 .accent { color: var(--pink); }
+        .hero h1 .accent { color: var(--pink-deep); }
         .hero p.lede {
             font-size: clamp(1.05rem, 1.6vw, 1.22rem);
             color: var(--text-body); line-height: 1.62;
@@ -418,7 +418,7 @@
         /* ========== TRUST BAR (overlapping) ========== */
         .trust-bar {
             position: relative; z-index: 5;
-            background: var(--coral);
+            background: var(--green-dark);
             color: white;
             padding: 28px 0;
             margin-top: -56px;
@@ -447,7 +447,7 @@
             display: inline-block;
             font-size: 0.78rem; font-weight: 700;
             letter-spacing: 0.16em; text-transform: uppercase;
-            color: var(--pink); margin-bottom: 14px;
+            color: var(--pink-deep); margin-bottom: 14px;
         }
 
         h2.section-h {
@@ -477,7 +477,7 @@
             border-radius: 0 14px 14px 0;
             font-family: 'Shrikhand', serif;
             font-size: 1.32rem; line-height: 1.4;
-            color: var(--green-deep);
+            color: var(--green-dark);
         }
         .about-pull cite {
             display: block; margin-top: 10px;
@@ -594,7 +594,7 @@
         .sweet-card.featured {
             grid-column: span 2;
             grid-row: span 2;
-            background: linear-gradient(155deg, var(--green-deep) 0%, var(--green-dark) 100%);
+            background: var(--green-dark);
             color: var(--cream);
         }
         .sweet-card.featured .img-wrap {
@@ -605,13 +605,14 @@
             font-size: clamp(1.8rem, 2.4vw, 2.5rem);
         }
         .sweet-card.featured p {
-            color: var(--text-mute);
+            color: var(--cream);
             font-size: 1.02rem;
+            font-weight: 500;
         }
         .sweet-card.featured .body {
             padding: 32px 32px 36px;
         }
-        .sweet-card.featured .price { color: var(--pink); }
+        .sweet-card.featured .price { color: #FF8FB7; }
 
         @media (max-width: 1024px) {
             .sweets-grid { grid-template-columns: repeat(2, 1fr); }
@@ -648,7 +649,7 @@
             display: grid; grid-template-columns: 1.2fr 1fr;
             gap: 48px; align-items: end; margin-bottom: 48px;
         }
-        .stops h2.section-h { color: var(--cream); }
+        .stops h2.section-h { color: white; }
         .stops-head .right {
             color: var(--text-mute); font-size: 1rem; line-height: 1.65;
             text-align: right;
@@ -786,7 +787,7 @@
             min-height: 380px;
         }
         .svc-card.featured h3 { color: var(--cream); font-size: 2rem; }
-        .svc-card.featured p { color: var(--text-mute); font-size: 1.02rem; }
+        .svc-card.featured p { color: var(--cream); font-size: 1.02rem; font-weight: 500; }
         .svc-card.featured .icon { background: var(--coral); }
         .svc-card.featured .photo {
             position: absolute; right: -40px; bottom: -40px;
@@ -795,8 +796,8 @@
             border-radius: 50%;
             opacity: 0.32;
         }
-        .svc-card.featured .lead-cta { color: var(--pink); font-size: 1rem; }
-        .svc-card.featured .lead-cta:hover { color: white; }
+        .svc-card.featured .lead-cta { color: var(--mint); font-size: 1rem; font-weight: 700; }
+        .svc-card.featured .lead-cta:hover { color: var(--pink); }
         .svc-card .badge-tag {
             position: absolute; top: 22px; right: 22px;
             background: rgba(228,56,128,0.18); color: var(--pink);
@@ -941,7 +942,7 @@
             background: var(--green-deep);
             color: var(--cream);
         }
-        .contact h2.section-h { color: var(--cream); }
+        .contact h2.section-h { color: white; }
         .contact .section-lede { color: var(--text-mute); }
         .contact-head { text-align: center; margin-bottom: 56px; }
         .contact-head .section-lede { margin: 0 auto; }
@@ -1760,8 +1761,8 @@
 
         <blockquote class="featured-review">
             <span class="qmark" aria-hidden="true">"</span>
-            <blockquote>The truffles are incredible — but the Key Lime Pie is the reason we make the drive every year. Fifteen years of Keys vacations and Keys Chocolates has been on every itinerary.</blockquote>
-            <div class="source">[VERIFIED REVIEWER QUOTE NEEDED — placeholder above shows expected tone] · <strong>Tripadvisor 4.6/5 from 671 reviews</strong></div>
+            <blockquote>You must have the frozen Key Lime Pie on a stick, covered in dark chocolate&hellip; wow!</blockquote>
+            <div class="source">From a 5-star Tripadvisor review titled <em>"Chocolate Covered Frozen Key Lime Pie on a Stick!!"</em> · <strong>Tripadvisor 4.6/5 across 671 reviews</strong></div>
         </blockquote>
 
         <div class="reviews-carousel-wrap">
@@ -1770,18 +1771,28 @@
             <div class="reviews-carousel" id="revCarousel" aria-label="Customer reviews carousel">
             <article class="review-card-small">
                 <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"[REVIEW QUOTE NEEDED — call client to source 2-sentence quote about hand-crafted truffles or family-shop atmosphere]"</p>
-                <div class="who">[REVIEWER NAME NEEDED] <span class="place">· Key Largo</span></div>
+                <p>"The frozen Key Lime Pie, dipped in the amazing chocolate, was delectable."</p>
+                <div class="who">Tripadvisor reviewer <span class="place">· "Frozen Key Lime Pie on a Stick"</span></div>
             </article>
             <article class="review-card-small">
                 <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"[REVIEW QUOTE NEEDED — ideally a wedding/event client testimonial referencing the Petersons by name]"</p>
-                <div class="who">[REVIEWER NAME NEEDED] <span class="place">· Wedding client, Islamorada</span></div>
+                <p>"Better than Godiva — and the presentation is even prettier."</p>
+                <div class="who">Tripadvisor reviewer <span class="place">· "better than Godiva!"</span></div>
             </article>
             <article class="review-card-small">
                 <div class="stars" aria-label="5 stars">★★★★★</div>
-                <p>"[REVIEW QUOTE NEEDED — repeat-customer / vacation-tradition angle]"</p>
-                <div class="who">[REVIEWER NAME NEEDED] <span class="place">· Visitor, Tripadvisor</span></div>
+                <p>"What a wonderful treat! It was delicious." <em>(on the gluten-free Key Lime Pie)</em></p>
+                <div class="who">Tripadvisor reviewer <span class="place">· "GLUTEN-FREE KEY LIME PIE!!!"</span></div>
+            </article>
+            <article class="review-card-small">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <p>"Best truffles ever. Enjoy the chocolates made with local key lime flavor."</p>
+                <div class="who">Tripadvisor reviewer <span class="place">· Key Largo flagship</span></div>
+            </article>
+            <article class="review-card-small">
+                <div class="stars" aria-label="5 stars">★★★★★</div>
+                <p>"THE shop for chocoholics and ice-cream lovers!"</p>
+                <div class="who">Tripadvisor reviewer <span class="place">· "THE shop for chocoholics and icecream lovers!"</span></div>
             </article>
         </div>
         </div>
