@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Key Largo Chocolates & Ice Cream | Hand-Crafted Truffles, Famous Key Lime Pie & 36 Ice Cream Flavors — Florida Keys</title>
-    <meta name="description" content="Family-owned chocolate shop and creamery with three Florida Keys storefronts. Hand-crafted truffles, our famous Key Lime Pie, 36 flavors of ice cream. Mile Marker 100, Key Largo. (305) 453-6613">
-    <meta name="keywords" content="Key Largo chocolates, Florida Keys chocolatier, Islamorada ice cream, Key Lime Pie Florida Keys, hand-crafted truffles Key Largo, gourmet chocolate Florida Keys, Keys ice cream shop, wedding chocolate favors Florida Keys, North Palm Beach chocolatier, Mile Marker 100 Key Largo">
+    <meta name="description" content="Family-owned Florida Keys chocolate shop and creamery. Hand-crafted truffles, our famous Key Lime Pie, 36 flavors of ice cream. Two storefronts: Key Largo (MM 100) and Islamorada (MM 81.9). (305) 453-6613">
+    <meta name="keywords" content="Key Largo chocolates, Florida Keys chocolatier, Islamorada ice cream, Key Lime Pie Florida Keys, hand-crafted truffles Key Largo, gourmet chocolate Florida Keys, Keys ice cream shop, wedding chocolate favors Florida Keys, Mile Marker 100 Key Largo, MM 81.9 Islamorada">
     <meta name="geo.position" content="25.0865,-80.4473">
     <meta name="geo.placename" content="Key Largo, FL">
     <meta name="geo.region" content="US-FL">
@@ -15,7 +15,7 @@
     <link rel="canonical" href="https://www.keylargochocolates.com/">
 
     <meta property="og:title" content="Key Largo Chocolates & Ice Cream | Florida Keys">
-    <meta property="og:description" content="Hand-crafted truffles, our famous Key Lime Pie, and 36 flavors of ice cream. Three storefronts across the Florida Keys, family-owned since 2010.">
+    <meta property="og:description" content="Hand-crafted truffles, our famous Key Lime Pie, and 36 flavors of ice cream. Two storefronts in the Florida Keys, family-owned since 2010.">
     <meta property="og:image" content="https://crossfiber.github.io/keys-chocolates/assets/truffle-box.jpg">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.keylargochocolates.com/">
@@ -23,7 +23,7 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Key Largo Chocolates & Ice Cream | Florida Keys">
-    <meta name="twitter:description" content="Hand-crafted truffles, famous Key Lime Pie, and 36 flavors of ice cream. Three Florida Keys storefronts since 2010.">
+    <meta name="twitter:description" content="Hand-crafted truffles, famous Key Lime Pie, and 36 flavors of ice cream. Two Florida Keys storefronts since 2010.">
     <meta name="twitter:image" content="https://crossfiber.github.io/keys-chocolates/assets/truffle-box.jpg">
 
     <link rel="icon" href="assets/logo-mobile.png">
@@ -306,7 +306,7 @@
         .hero-stars { color: var(--gold); font-size: 0.95rem; letter-spacing: 1px; }
         .hero-meta strong { color: var(--green-deep); font-weight: 700; }
 
-        /* === Hero Signature: "Three Stops" interactive map === */
+        /* === Legacy hero-signature CSS (kept for historical reference; replaced by hero image) === */
         .stops-card {
             background: white;
             border-radius: 22px;
@@ -709,8 +709,10 @@
 
         .locations {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 920px;
+            margin: 0 auto;
         }
         .loc-card {
             background: rgba(232,245,229,0.06);
@@ -770,7 +772,7 @@
             border: 1.5px solid var(--pink); color: var(--pink);
         }
         .loc-card .actions a.tel:hover { background: var(--pink); color: white; }
-        @media (max-width: 920px) {
+        @media (max-width: 720px) {
             .locations {
                 display: flex;
                 grid-template-columns: none;
@@ -783,10 +785,11 @@
                 padding-left: 28px;
                 padding-right: 28px;
                 scrollbar-width: none;
+                max-width: none;
             }
             .locations::-webkit-scrollbar { display: none; }
             .locations .loc-card {
-                flex: 0 0 86%;
+                flex: 0 0 88%;
                 min-width: 280px;
                 scroll-snap-align: start;
             }
@@ -1511,7 +1514,7 @@
         .locations-hint {
             display: none;
         }
-        @media (max-width: 920px) {
+        @media (max-width: 720px) {
             .locations-hint {
                 display: flex; align-items: center; gap: 8px;
                 color: var(--text-mute);
@@ -1597,8 +1600,8 @@
                     <i class="fa-solid fa-location-crosshairs" aria-hidden="true"></i>
                     Mile Marker 100, Key Largo
                 </span>
-                <h1>Three stops.<br>One family.<br><span class="accent">A whole lotta chocolate.</span></h1>
-                <p class="lede">Hand-crafted truffles, our famous Key Lime Pie, 36 flavors of ice cream, and a Florida Keys vacation tradition since 2010 — from a Peterson family that's been making sweets for three generations.</p>
+                <h1>Two shops.<br>One family.<br><span class="accent">A whole lotta chocolate.</span></h1>
+                <p class="lede">Hand-crafted truffles, our famous Key Lime Pie, 36 flavors of ice cream, and a Florida Keys vacation tradition since 2010 — from the Peterson family. Two shops along US-1: Mile Marker 100 in Key Largo, and Mile Marker 81.9 in Islamorada.</p>
                 <div class="hero-ctas">
                     <a href="#stops" class="btn btn-primary">
                         <i class="fa-solid fa-route" aria-hidden="true"></i> Find Your Stop
@@ -1648,7 +1651,7 @@
                 <span class="eyebrow">The Peterson Family</span>
                 <h2>From a Minnesota chocolate shop to Mile Marker 100.</h2>
                 <p>Sweets are a family legacy for Bronna and Rich Peterson. Bronna's grandmother owned her own restaurant and bakery — pies, cakes, cookies, the works. Rich's family owned <em>Ramer's Chocolates &amp; Confectionary</em>, a name Minnesotans knew for decades.</p>
-                <p>In 2010, they brought the recipes south. The flagship shop opened at Mile Marker 100 in Key Largo. Sixteen years and two more storefronts later — Islamorada and North Palm Beach — they're still hand-crafting truffles in the back of the Key Largo shop and pulling Key Lime Pies out of the same family oven.</p>
+                <p>In 2010, they brought the recipes south. The flagship shop opened at Mile Marker 100 in Key Largo. Sixteen years later — and a second shop down the road in Islamorada — they're still hand-crafting truffles in the back of the Key Largo shop and pulling Key Lime Pies out of the same family oven.</p>
                 <blockquote class="about-pull">
                     "We can't wait to see you in the Keys."
                     <cite>— Rich &amp; Bronna Peterson, owners</cite>
@@ -1673,7 +1676,7 @@
             </div>
             <div class="right">
                 Our truffles are made by hand in the back of the Key Largo shop. Our Key Lime Pie is baked the same way Bronna's grandmother taught her.
-                <a href="#stops">See all three locations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <a href="#stops">See both shops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
             </div>
         </div>
 
@@ -1748,39 +1751,21 @@
     <div class="container stops-inner">
         <div class="stops-head">
             <div>
-                <h2 class="section-h">Three stops along US-1.<br>Same family. Same recipes.</h2>
+                <h2 class="section-h">Two shops along US-1.<br>Same family. Same recipes.</h2>
             </div>
             <div class="right">
-                Driving the Keys? Stop at the flagship in Key Largo. On a North Palm Beach day? We're there too. Each shop has the same hand-crafted truffles and Key Lime Pie — plus a few signatures of its own.
+                Driving the Keys? Stop at the flagship in Key Largo on Mile Marker 100, or pull off at Islamorada (MM 81.9). Both shops have the same hand-crafted truffles and Key Lime Pie — and a few signatures of their own.
             </div>
         </div>
         <div class="locations-hint" aria-hidden="true">
-            <i class="fa-solid fa-hand-pointer"></i> Swipe to see all three stops
+            <i class="fa-solid fa-hand-pointer"></i> Swipe between Key Largo & Islamorada
         </div>
 
         <div class="locations">
-            <article class="loc-card">
-                <div class="loc-photo">
-                    <img src="assets/dessert-table.jpg" alt="Dessert table for events at the North Palm Beach location of Keys Chocolates">
-                    <span class="loc-pin-photo">1</span>
-                    <span class="loc-stamp">North Palm Beach</span>
-                </div>
-                <div class="loc-body">
-                    <h3>North Palm Beach</h3>
-                    <p class="addr">640 Northlake Blvd<br>North Palm Beach, FL 33408</p>
-                    <div class="row"><i class="fa-solid fa-business-time" aria-hidden="true"></i><span><strong>Hours:</strong> Call to confirm</span></div>
-                    <div class="row"><i class="fa-solid fa-shop" aria-hidden="true"></i><span>Newest stop — bringing the Keys to Palm Beach County</span></div>
-                    <span class="signature"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i> Wedding & Event HQ</span>
-                    <div class="actions">
-                        <a class="dir" href="https://www.google.com/maps/search/?api=1&query=640+Northlake+Blvd+North+Palm+Beach+FL+33408" target="_blank" rel="noopener"><i class="fa-solid fa-route" aria-hidden="true"></i> Directions</a>
-                    </div>
-                </div>
-            </article>
-
             <article class="loc-card featured">
                 <div class="loc-photo">
                     <img src="assets/our-story-since-2010.jpg" alt="The Keys Chocolates flagship shop at Mile Marker 100 in Key Largo">
-                    <span class="loc-pin-photo">2</span>
+                    <span class="loc-pin-photo">1</span>
                     <span class="loc-stamp">Flagship · MM 100</span>
                 </div>
                 <div class="loc-body">
@@ -1799,8 +1784,8 @@
             <article class="loc-card">
                 <div class="loc-photo">
                     <img src="assets/banana-split.jpg" alt="Ice cream sundae at the Islamorada location of Keys Chocolates">
-                    <span class="loc-pin-photo">3</span>
-                    <span class="loc-stamp">Islamorada</span>
+                    <span class="loc-pin-photo">2</span>
+                    <span class="loc-stamp">Islamorada · MM 81.9</span>
                 </div>
                 <div class="loc-body">
                     <h3>Islamorada</h3>
@@ -1824,7 +1809,7 @@
         <div style="margin-bottom: 40px; max-width: 720px;">
             <span class="eyebrow">Beyond the Counter</span>
             <h2 class="section-h">When you need more than a box of truffles.</h2>
-            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, wholesale by the case for your gift shop. Tap any to learn more.</p>
+            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, wholesale by the case for your gift shop — handled out of the Key Largo kitchen. Tap any to learn more.</p>
         </div>
 
         <div class="beyond-grid">
@@ -1841,7 +1826,7 @@
                 <div class="svc-acc-detail">
                     <div class="svc-acc-detail-inner">
                         <div>
-                            <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations &mdash; with a Wedding &amp; Event HQ at the North Palm Beach location.</p>
+                            <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations &mdash; full-service event planning out of the Key Largo kitchen.</p>
                             <a href="mailto:events@keylargochocolates.com" class="lead-cta">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="svc-acc-img">
@@ -1885,7 +1870,7 @@
                 <div class="svc-acc-detail">
                     <div class="svc-acc-detail-inner">
                         <div>
-                            <p>Resorts, gift shops, and bakery accounts across South Florida already stock our truffles, pretzels, and Key Lime products. Custom case pricing, white-label options for partner brands, and consistent supply out of the Key Largo and North Palm Beach kitchens.</p>
+                            <p>Resorts, gift shops, and bakery accounts across South Florida already stock our truffles, pretzels, and Key Lime products. Custom case pricing, white-label options for partner brands, and consistent supply straight out of the Key Largo kitchen.</p>
                             <a href="mailto:info@keylargochocolates.com" class="lead-cta">Become a partner <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="svc-acc-img">
@@ -1962,7 +1947,7 @@
                         <span>Where are you located?</span>
                         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </button>
-                    <div class="accordion-content"><div class="accordion-text">Three Florida storefronts. The flagship is at Mile Marker 100 in Key Largo (100470 Overseas Hwy) — that's where the truffles and pies are made. Our Islamorada shop is at 81933 Overseas Hwy, and our newest stop is in North Palm Beach at 640 Northlake Blvd. Hours and full directions are in the "Visit Us" section above.</div></div>
+                    <div class="accordion-content"><div class="accordion-text">Two Florida storefronts along US-1. The flagship is at Mile Marker 100 in Key Largo (100470 Overseas Hwy) — that's where the truffles and pies are made. Our Islamorada shop is at 81933 Overseas Hwy, MM 81.9. Hours and full directions are in the "Visit Us" section above.</div></div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
@@ -1997,7 +1982,7 @@
                         <span>Can I book a private event in the shop?</span>
                         <i class="fa-solid fa-chevron-down" aria-hidden="true"></i>
                     </button>
-                    <div class="accordion-content"><div class="accordion-text">For private events, the team can usually accommodate small groups and tasting parties at the Key Largo flagship — and the North Palm Beach location is built around event work. Email <a href="mailto:events@keylargochocolates.com" style="color:var(--pink);font-weight:700">events@keylargochocolates.com</a> with your group size and date.</div></div>
+                    <div class="accordion-content"><div class="accordion-text">For private events, the team can accommodate small groups and tasting parties at the Key Largo flagship, and runs full-service custom events out of the same kitchen. Email <a href="mailto:events@keylargochocolates.com" style="color:var(--pink);font-weight:700">events@keylargochocolates.com</a> with your group size and date.</div></div>
                 </div>
                 <div class="accordion-item">
                     <button class="accordion-header" onclick="toggleAccordion(this)" aria-expanded="false">
@@ -2067,12 +2052,12 @@
                 </div>
                 <div class="loc-mini">
                     <div class="name">Islamorada</div>
-                    <div class="addr">81933 Overseas Hwy, Islamorada, FL 33036</div>
+                    <div class="addr">81933 Overseas Hwy (MM 81.9), Islamorada, FL 33036</div>
                     <div class="row"><i class="fa-solid fa-phone-volume" aria-hidden="true"></i><a href="tel:+13054403178">(305) 440-3178</a></div>
                 </div>
-                <div class="loc-mini">
-                    <div class="name">North Palm Beach</div>
-                    <div class="addr">640 Northlake Blvd, North Palm Beach, FL 33408</div>
+                <div class="loc-mini" style="border-left-color: var(--green);">
+                    <div class="name">Weddings &amp; Events</div>
+                    <div class="addr">Custom cakes, dessert tables, and chocolate-favor trays — handled out of the Key Largo kitchen.</div>
                     <div class="row"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i><a href="mailto:events@keylargochocolates.com">events@keylargochocolates.com</a></div>
                 </div>
             </div>
@@ -2086,7 +2071,7 @@
         <div class="footer-grid">
             <div class="footer-brand">
                 <img src="assets/logo-desktop.png" alt="Keys Chocolates & Ice Cream">
-                <p>Hand-crafted truffles, our famous Key Lime Pie, and 36 flavors of ice cream — at three Florida storefronts. Family-owned by Rich &amp; Bronna Peterson since 2010.</p>
+                <p>Hand-crafted truffles, our famous Key Lime Pie, and 36 flavors of ice cream — at our Key Largo flagship (MM 100) and our Islamorada shop (MM 81.9). Family-owned by Rich &amp; Bronna Peterson since 2010.</p>
                 <div class="social-row">
                     <a href="https://www.instagram.com/keylargochocolates/" target="_blank" rel="noopener" aria-label="Instagram"><i class="fa-brands fa-instagram" aria-hidden="true"></i></a>
                     <a href="https://www.facebook.com/KeyLargoChocolates/" target="_blank" rel="noopener" aria-label="Facebook"><i class="fa-brands fa-facebook" aria-hidden="true"></i></a>
@@ -2106,8 +2091,7 @@
                 <h4>Visit</h4>
                 <ul>
                     <li><a href="#stops">Key Largo (flagship)</a></li>
-                    <li><a href="#stops">Islamorada</a></li>
-                    <li><a href="#stops">North Palm Beach</a></li>
+                    <li><a href="#stops">Islamorada (MM 81.9)</a></li>
                     <li><a href="#beyond">Weddings & Events</a></li>
                     <li><a href="#beyond">Wholesale</a></li>
                 </ul>
@@ -2313,33 +2297,13 @@
 }
 </script>
 
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FoodEstablishment",
-  "name": "Keys Chocolates & Ice Cream — North Palm Beach",
-  "url": "https://www.keylargochocolates.com/",
-  "email": "events@keylargochocolates.com",
-  "priceRange": "$$",
-  "servesCuisine": ["Chocolate", "Desserts", "Wedding Cakes"],
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "640 Northlake Blvd",
-    "addressLocality": "North Palm Beach",
-    "addressRegion": "FL",
-    "postalCode": "33408",
-    "addressCountry": "US"
-  },
-  "geo": {"@type": "GeoCoordinates", "latitude": 26.8064, "longitude": -80.0644}
-}
-</script>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "Where are you located?", "acceptedAnswer": {"@type": "Answer", "text": "Three Florida storefronts: the flagship at Mile Marker 100 in Key Largo (100470 Overseas Hwy), Islamorada at 81933 Overseas Hwy, and North Palm Beach at 640 Northlake Blvd."}},
+    {"@type": "Question", "name": "Where are you located?", "acceptedAnswer": {"@type": "Answer", "text": "Two Florida storefronts: the flagship at Mile Marker 100 in Key Largo (100470 Overseas Hwy), and Islamorada at 81933 Overseas Hwy (MM 81.9)."}},
     {"@type": "Question", "name": "Are your truffles really made by hand?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — every truffle is hand-rolled and hand-dipped in the back of the Key Largo shop using recipes from Rich Peterson's family confectionery, Ramer's Chocolates of Minnesota."}},
     {"@type": "Question", "name": "Do you ship?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, chocolate, candy, and gift assortments ship anywhere in the continental US through our online shop. Ice cream and frozen Key Lime Pie bars are pickup-only at the shops."}},
     {"@type": "Question", "name": "Can I order a custom wedding cake or dessert table?", "acceptedAnswer": {"@type": "Answer", "text": "Yes — weddings and events are a major part of what we do. Custom cakes, chocolate dessert tables, favor trays, and more. Email events@keylargochocolates.com or call (561) 568-2882."}},
