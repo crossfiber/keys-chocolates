@@ -231,9 +231,25 @@
             display: flex; flex-direction: column; gap: 14px;
         }
         .drawer-phone {
-            display: inline-flex; align-items: center; gap: 10px;
-            color: var(--pink); font-weight: 700; font-size: 1.05rem;
+            display: inline-flex;
+            align-items: center; justify-content: center;
+            gap: 10px;
+            background: white;
+            color: var(--green-dark);
+            font-weight: 700;
+            font-size: 1.02rem;
+            padding: 12px 20px;
+            border-radius: 999px;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.18);
+            transition: all 0.22s;
         }
+        .drawer-phone:hover {
+            background: var(--pink); color: white;
+            transform: translateY(-1px);
+            box-shadow: 0 10px 22px rgba(228,56,128,0.32);
+        }
+        .drawer-phone i { color: var(--pink); transition: color 0.22s; }
+        .drawer-phone:hover i { color: white; }
         @keyframes slideInLeft {
             from { opacity: 0; transform: translateX(20px); }
             to { opacity: 1; transform: translateX(0); }
@@ -487,24 +503,40 @@
             letter-spacing: 0.04em;
         }
         .about-photo {
-            position: relative; border-radius: 22px; overflow: hidden;
-            aspect-ratio: 4/5; box-shadow: var(--shadow-deep);
+            position: relative;
+            padding-bottom: 30px; /* room for the bottom-overlapping badge */
         }
-        .about-photo img { width: 100%; height: 100%; object-fit: cover; }
+        .about-photo > .about-photo-inner {
+            border-radius: 22px;
+            overflow: hidden;
+            aspect-ratio: 4/5;
+            box-shadow: var(--shadow-deep);
+        }
+        .about-photo > .about-photo-inner img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+        }
         .about-photo .yr-badge {
-            position: absolute; top: 22px; left: 22px;
+            position: absolute;
+            bottom: 0; left: 50%;
+            transform: translate(-50%, 50%);
             background: var(--pink); color: white;
-            padding: 10px 16px; border-radius: 12px;
-            font-family: 'Shrikhand', serif; font-size: 1.4rem; line-height: 1;
+            padding: 12px 22px; border-radius: 14px;
+            font-family: 'Shrikhand', serif; font-size: 1.45rem; line-height: 1;
+            box-shadow: 0 12px 28px rgba(228,56,128,0.40), 0 2px 6px rgba(31,20,16,0.12);
+            text-align: center;
+            white-space: nowrap;
+            z-index: 3;
         }
         .about-photo .yr-badge span {
-            display: block; font-family: 'Chivo'; font-size: 0.7rem;
-            font-weight: 700; letter-spacing: 0.12em;
+            display: block; font-family: 'Chivo', sans-serif; font-size: 0.7rem;
+            font-weight: 700; letter-spacing: 0.14em;
             text-transform: uppercase; margin-top: 4px;
+            color: rgba(255,255,255,0.95);
         }
         @media (max-width: 880px) {
             .about-grid { grid-template-columns: 1fr; gap: 44px; }
-            .about-photo { aspect-ratio: 4/3; }
+            .about-photo > .about-photo-inner { aspect-ratio: 4/3; max-width: 580px; margin: 0 auto; }
+            .about-photo .yr-badge { font-size: 1.25rem; padding: 11px 18px; }
         }
 
         /* ========== SIGNATURE SWEETS — tiered grid ========== */
@@ -739,75 +771,170 @@
         }
         .loc-card .actions a.tel:hover { background: var(--pink); color: white; }
         @media (max-width: 920px) {
-            .locations { grid-template-columns: 1fr; }
-            .big-map { padding: 22px; }
+            .locations {
+                display: flex;
+                grid-template-columns: none;
+                gap: 16px;
+                overflow-x: auto;
+                scroll-snap-type: x mandatory;
+                scroll-behavior: smooth;
+                padding: 4px 4px 16px;
+                margin: 0 -28px;
+                padding-left: 28px;
+                padding-right: 28px;
+                scrollbar-width: none;
+            }
+            .locations::-webkit-scrollbar { display: none; }
+            .locations .loc-card {
+                flex: 0 0 86%;
+                min-width: 280px;
+                scroll-snap-align: start;
+            }
+            .big-map { display: none; }
+        }
+        @media (max-width: 540px) {
+            .locations .loc-card { flex: 0 0 90%; }
         }
 
-        /* ========== BEYOND THE COUNTER (services) — uses eyebrow 2/3 ========== */
+        /* ========== BEYOND THE COUNTER — uniform accordion (desktop + mobile) ========== */
         .beyond { background: var(--cream); }
         .beyond-grid {
             display: grid;
-            grid-template-columns: 1.6fr 1fr 1fr;
-            gap: 22px;
+            grid-template-columns: 1fr;
+            gap: 18px;
+            max-width: 880px;
+            margin: 0 auto;
         }
-        .svc-card {
+        .svc-acc {
             background: var(--mint);
+            border: 1px solid rgba(91,184,91,0.22);
             border-radius: 18px;
-            padding: 32px 28px;
-            display: flex; flex-direction: column;
-            transition: transform 0.28s, box-shadow 0.28s;
-            position: relative; overflow: hidden;
+            overflow: hidden;
+            transition: box-shadow 0.28s, border-color 0.28s, background 0.28s;
         }
-        .svc-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-mid); }
-        .svc-card .icon {
+        .svc-acc.open {
+            background: white;
+            border-color: rgba(228,56,128,0.38);
+            box-shadow: 0 14px 36px rgba(26,77,46,0.14);
+        }
+        .svc-acc-summary {
+            display: flex; align-items: center; gap: 18px;
+            padding: 22px 26px;
+            cursor: pointer;
+            position: relative;
+            user-select: none;
+        }
+        .svc-acc .icon {
             width: 56px; height: 56px;
             border-radius: 14px;
-            display: inline-flex; align-items: center; justify-content: center;
             background: var(--pink); color: white;
-            font-size: 1.4rem; margin-bottom: 22px;
+            display: inline-flex; align-items: center; justify-content: center;
+            font-size: 1.35rem;
+            flex-shrink: 0;
         }
-        .svc-card h3 {
-            font-size: 1.55rem; margin-bottom: 10px;
+        .svc-acc-summary .heading-wrap {
+            flex: 1; min-width: 0;
+            display: flex; flex-direction: column; gap: 4px;
         }
-        .svc-card p {
-            font-size: 0.96rem; color: var(--text-body);
-            line-height: 1.62; flex: 1; margin-bottom: 22px;
+        .svc-acc h3 {
+            font-size: 1.5rem;
+            color: var(--green-dark);
+            margin: 0; line-height: 1.15;
         }
-        .svc-card .lead-cta {
-            align-self: flex-start;
-            display: inline-flex; align-items: center; gap: 8px;
-            font-weight: 700; color: var(--pink);
-            font-size: 0.95rem;
+        .svc-acc .sub {
+            color: var(--text-body);
+            font-size: 0.92rem; font-weight: 500;
         }
-        .svc-card .lead-cta:hover { color: var(--pink-deep); }
-        .svc-card.featured {
-            background: var(--green-deep);
-            color: var(--cream);
-            position: relative;
-            min-height: 380px;
-        }
-        .svc-card.featured h3 { color: var(--cream); font-size: 2rem; }
-        .svc-card.featured p { color: var(--cream); font-size: 1.02rem; font-weight: 500; }
-        .svc-card.featured .icon { background: var(--coral); }
-        .svc-card.featured .photo {
-            position: absolute; right: -40px; bottom: -40px;
-            width: 240px; height: 240px;
-            background: url('assets/dessert-table.jpg') center/cover;
-            border-radius: 50%;
-            opacity: 0.32;
-        }
-        .svc-card.featured .lead-cta { color: var(--mint); font-size: 1rem; font-weight: 700; }
-        .svc-card.featured .lead-cta:hover { color: var(--pink); }
-        .svc-card .badge-tag {
-            position: absolute; top: 22px; right: 22px;
-            background: rgba(228,56,128,0.18); color: var(--pink);
-            padding: 5px 11px; border-radius: 999px;
-            font-size: 0.72rem; font-weight: 700; letter-spacing: 0.10em;
+        .svc-acc .badge-tag {
+            background: var(--pink);
+            color: white;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.10em;
             text-transform: uppercase;
+            padding: 5px 12px;
+            border-radius: 999px;
+            margin-right: 10px;
+            white-space: nowrap;
+            box-shadow: 0 4px 12px rgba(228,56,128,0.30);
+            flex-shrink: 0;
         }
-        @media (max-width: 920px) {
-            .beyond-grid { grid-template-columns: 1fr; }
-            .svc-card.featured .photo { width: 180px; height: 180px; right: -30px; bottom: -30px; }
+        .svc-toggle {
+            width: 42px; height: 42px;
+            border-radius: 50%;
+            background: var(--pink);
+            color: white;
+            font-size: 1.05rem;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: transform 0.32s ease, background 0.22s;
+            flex-shrink: 0;
+        }
+        .svc-acc.open .svc-toggle {
+            background: var(--green-dark);
+            transform: rotate(45deg);
+        }
+        .svc-acc-detail {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.42s ease;
+        }
+        .svc-acc.open .svc-acc-detail { max-height: 700px; }
+        .svc-acc-detail-inner {
+            display: grid;
+            grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+            gap: 26px;
+            padding: 6px 26px 28px;
+            align-items: center;
+        }
+        .svc-acc-img {
+            border-radius: 14px;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: var(--mint);
+        }
+        .svc-acc-img img {
+            width: 100%; height: 100%;
+            object-fit: cover; display: block;
+        }
+        .svc-acc p {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.62;
+            margin-bottom: 16px;
+        }
+        .svc-acc .lead-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--pink);
+            color: white;
+            padding: 11px 20px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            transition: all 0.22s;
+        }
+        .svc-acc .lead-cta:hover {
+            background: var(--pink-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(228,56,128,0.30);
+        }
+        @media (max-width: 720px) {
+            .svc-acc-summary { padding: 18px 20px; gap: 14px; }
+            .svc-acc .icon { width: 46px; height: 46px; font-size: 1.1rem; }
+            .svc-acc h3 { font-size: 1.2rem; }
+            .svc-acc .sub { display: none; }
+            .svc-acc .badge-tag {
+                font-size: 0.62rem;
+                padding: 4px 9px;
+                margin-right: 6px;
+            }
+            .svc-toggle { width: 36px; height: 36px; font-size: 0.92rem; }
+            .svc-acc-detail-inner {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                padding: 4px 20px 22px;
+            }
+            .svc-acc-img { aspect-ratio: 16/10; }
+            .svc-acc p { font-size: 0.95rem; }
         }
 
         /* ========== REVIEWS ========== */
@@ -952,15 +1079,15 @@
             gap: 56px;
         }
         .contact-form {
-            background: rgba(232,245,229,0.05);
-            border: 1px solid rgba(232,245,229,0.10);
+            background: rgba(255,255,255,0.06);
+            border: 1px solid rgba(255,255,255,0.14);
             border-radius: 18px;
             padding: 36px;
         }
         .form-row { margin-bottom: 18px; }
         .form-row label {
             display: block; font-size: 0.85rem;
-            font-weight: 700; color: var(--cream);
+            font-weight: 700; color: white;
             margin-bottom: 7px;
             letter-spacing: 0.04em;
         }
@@ -968,10 +1095,10 @@
         .form-row textarea,
         .form-row select {
             width: 100%; padding: 13px 16px;
-            background: rgba(232,245,229,0.08);
-            border: 1.5px solid rgba(232,245,229,0.18);
+            background: rgba(255,255,255,0.10);
+            border: 1.5px solid rgba(255,255,255,0.22);
             border-radius: 10px;
-            color: var(--cream);
+            color: white;
             font-family: 'Chivo', sans-serif;
             font-size: 0.97rem;
             transition: border-color 0.22s, background 0.22s;
@@ -980,7 +1107,7 @@
         .form-row textarea:focus,
         .form-row select:focus {
             outline: none; border-color: var(--pink);
-            background: rgba(232,245,229,0.12);
+            background: rgba(255,255,255,0.16);
         }
         .form-row textarea { resize: vertical; min-height: 120px; }
         .form-row input::placeholder,
@@ -999,28 +1126,39 @@
 
         .contact-side { display: flex; flex-direction: column; gap: 16px; }
         .loc-mini {
-            background: rgba(232,245,229,0.05);
-            border: 1px solid rgba(232,245,229,0.10);
+            background: rgba(255,255,255,0.08);
+            border: 1px solid rgba(255,255,255,0.14);
             border-left: 4px solid var(--pink);
             border-radius: 12px;
             padding: 22px 24px;
         }
         .loc-mini .name {
             font-family: 'Shrikhand', serif;
-            font-size: 1.35rem; color: var(--cream);
+            font-size: 1.35rem; color: white;
             margin-bottom: 6px;
         }
         .loc-mini .addr {
-            font-size: 0.9rem; color: var(--text-mute);
-            margin-bottom: 12px; line-height: 1.5;
+            font-size: 0.92rem; color: #EAF5E5;
+            margin-bottom: 14px; line-height: 1.5;
         }
         .loc-mini .row {
             display: flex; align-items: center; gap: 10px;
-            font-size: 0.9rem; color: var(--text-mute);
-            margin-bottom: 6px;
+            font-size: 0.92rem; color: #EAF5E5;
+            margin-bottom: 8px;
         }
-        .loc-mini .row a { color: var(--pink); font-weight: 700; }
-        .loc-mini .row i { color: var(--pink); width: 16px; }
+        .loc-mini .row a {
+            display: inline-flex; align-items: center; gap: 6px;
+            background: white;
+            color: var(--green-dark);
+            padding: 7px 13px;
+            border-radius: 999px;
+            font-weight: 700; font-size: 0.88rem;
+            transition: all 0.22s;
+        }
+        .loc-mini .row a:hover {
+            background: var(--pink); color: white;
+        }
+        .loc-mini .row i { color: white; width: 16px; flex-shrink: 0; }
 
         @media (max-width: 920px) {
             .contact-grid { grid-template-columns: 1fr; gap: 44px; }
@@ -1118,39 +1256,44 @@
         /* ========== HERO IMAGE (replaces map signature) ========== */
         .hero-image {
             position: relative;
-            border-radius: 22px;
-            overflow: hidden;
-            box-shadow: 0 24px 56px rgba(26,77,46,0.18), 0 4px 14px rgba(228,56,128,0.10);
-            aspect-ratio: 4/5;
-            background: var(--cream);
-        }
-        .hero-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
+            background: transparent;
+            padding-bottom: 28px; /* room for the bottom-overlapping badge */
         }
         .hero-image-badge {
             position: absolute;
-            top: 22px;
-            left: 22px;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 50%);
             background: var(--pink);
             color: white;
-            padding: 10px 18px;
+            padding: 12px 22px;
             border-radius: 999px;
             font-size: 0.82rem;
             font-weight: 700;
-            letter-spacing: 0.06em;
+            letter-spacing: 0.08em;
             text-transform: uppercase;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 6px 16px rgba(228,56,128,0.32);
-            z-index: 2;
+            box-shadow: 0 10px 28px rgba(228,56,128,0.42), 0 2px 6px rgba(31,20,16,0.10);
+            z-index: 4;
+            white-space: nowrap;
+        }
+        .hero-image { overflow: visible; }
+        .hero-image > .hero-image-inner {
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 24px 56px rgba(26,77,46,0.18), 0 4px 14px rgba(228,56,128,0.10);
+            aspect-ratio: 4/5;
+        }
+        .hero-image > .hero-image-inner img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
         }
         @media (max-width: 980px) {
-            .hero-image { aspect-ratio: 4/3; max-width: 580px; margin: 0 auto; }
+            .hero-image > .hero-image-inner { aspect-ratio: 4/3; max-width: 580px; margin: 0 auto; }
+            .hero-image-badge { font-size: 0.74rem; padding: 11px 18px; }
         }
+
 
         /* ========== LOCATION PHOTO CARDS ========== */
         .loc-card {
@@ -1317,54 +1460,7 @@
             .review-arrow.next { right: 6px; }
         }
 
-        /* ========== MOBILE ACCORDIONS — Beyond + Sweets ========== */
-        .svc-toggle {
-            display: none;
-            position: absolute;
-            top: 18px; right: 18px;
-            width: 36px; height: 36px;
-            border-radius: 50%;
-            background: var(--pink);
-            color: white;
-            font-size: 0.95rem;
-            align-items: center; justify-content: center;
-            transition: transform 0.3s ease;
-            z-index: 3;
-        }
-        .svc-card.featured .svc-toggle { background: white; color: var(--pink); }
-
-        @media (max-width: 768px) {
-            .svc-toggle { display: inline-flex; }
-            .svc-card.is-collapsible { padding: 0; cursor: pointer; min-height: auto; }
-            .svc-card.is-collapsible .svc-card-summary {
-                display: flex; align-items: center; gap: 14px;
-                padding: 18px 20px;
-                position: relative;
-            }
-            .svc-card.is-collapsible .icon { width: 44px; height: 44px; font-size: 1.1rem; margin: 0; flex-shrink: 0; border-radius: 12px; }
-            .svc-card.is-collapsible .svc-card-summary h3 { font-size: 1.15rem; margin: 0; line-height: 1.2; flex: 1; }
-            .svc-card.is-collapsible .svc-card-detail {
-                max-height: 0;
-                overflow: hidden;
-                transition: max-height 0.34s ease, padding 0.34s ease;
-                padding: 0 20px;
-            }
-            .svc-card.is-collapsible.open .svc-card-detail {
-                max-height: 480px;
-                padding: 0 20px 22px;
-            }
-            .svc-card.is-collapsible.open .svc-toggle { transform: rotate(45deg); }
-            .svc-card.is-collapsible .svc-card-detail p { margin-bottom: 14px; font-size: 0.92rem; }
-            .svc-card.is-collapsible .svc-card-detail .lead-cta { font-size: 0.92rem; }
-            .svc-card.is-collapsible.featured .svc-card-summary h3 { color: white; }
-            .svc-card.is-collapsible.featured { min-height: auto; }
-            .svc-card.is-collapsible.featured .photo { display: none; }
-            .svc-card.is-collapsible.featured .badge-tag {
-                position: static; align-self: flex-start;
-                margin: 0 0 10px 0;
-                font-size: 0.68rem;
-            }
-        }
+        /* ========== MOBILE COLLAPSE for Sweets ========== */
 
         /* Sweets cards: tighter mobile treatment with collapsible detail */
         .sweet-toggle {
@@ -1409,6 +1505,22 @@
             .sweet-card.expanded .sweet-toggle { transform: rotate(45deg); }
             /* always show price line */
             .sweet-card .price { display: inline-block; }
+        }
+
+
+        .locations-hint {
+            display: none;
+        }
+        @media (max-width: 920px) {
+            .locations-hint {
+                display: flex; align-items: center; gap: 8px;
+                color: var(--text-mute);
+                font-size: 0.82rem; font-weight: 500;
+                letter-spacing: 0.06em;
+                text-transform: uppercase;
+                margin: 0 0 14px;
+            }
+            .locations-hint i { color: var(--pink); }
         }
 
     </style>
@@ -1503,11 +1615,13 @@
 
             <!-- ===== HERO IMAGE (replaces interactive map) ===== -->
             <div class="hero-image">
+                <div class="hero-image-inner">
+                    <img src="assets/hero-main.jpg" alt="Keys Chocolates & Ice Cream — hand-crafted truffles, 36 ice cream flavors, and famous Key Lime Pie">
+                </div>
                 <span class="hero-image-badge">
                     <i class="fa-solid fa-cookie-bite" aria-hidden="true"></i>
                     Hand-crafted on Mile Marker 100
                 </span>
-                <img src="assets/hero-main.jpg" alt="Keys Chocolates & Ice Cream — hand-crafted truffles, 36 ice cream flavors, and famous Key Lime Pie">
             </div>
         </div>
     </div>
@@ -1541,8 +1655,10 @@
                 </blockquote>
             </div>
             <div class="about-photo">
+                <div class="about-photo-inner">
+                    <img src="assets/our-story-since-2010.jpg" alt="Inside the Keys Chocolates flagship at Mile Marker 100, Key Largo — where the truffles are made by hand">
+                </div>
                 <div class="yr-badge">2010<span>family-owned since</span></div>
-                <img src="assets/our-story-since-2010.jpg" alt="Inside the Keys Chocolates flagship at Mile Marker 100, Key Largo — where the truffles are made by hand">
             </div>
         </div>
     </div>
@@ -1638,6 +1754,9 @@
                 Driving the Keys? Stop at the flagship in Key Largo. On a North Palm Beach day? We're there too. Each shop has the same hand-crafted truffles and Key Lime Pie — plus a few signatures of its own.
             </div>
         </div>
+        <div class="locations-hint" aria-hidden="true">
+            <i class="fa-solid fa-hand-pointer"></i> Swipe to see all three stops
+        </div>
 
         <div class="locations">
             <article class="loc-card">
@@ -1702,48 +1821,77 @@
 <!-- ========== BEYOND THE COUNTER — eyebrow 2/3 ========== -->
 <section class="beyond" id="beyond">
     <div class="container">
-        <div style="margin-bottom: 48px; max-width: 720px;">
+        <div style="margin-bottom: 40px; max-width: 720px;">
             <span class="eyebrow">Beyond the Counter</span>
             <h2 class="section-h">When you need more than a box of truffles.</h2>
-            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, wholesale by the case for your gift shop. The Petersons handle it all out of the Key Largo and North Palm Beach kitchens.</p>
+            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, wholesale by the case for your gift shop. Tap any to learn more.</p>
         </div>
 
         <div class="beyond-grid">
-            <article class="svc-card featured is-collapsible">
-                <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-                <div class="svc-card-summary">
-                    <span class="badge-tag">High season books fast</span>
+            <article class="svc-acc">
+                <div class="svc-acc-summary" onclick="toggleSvc(this)">
                     <div class="icon"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div>
-                    <h3>Weddings & Events</h3>
+                    <div class="heading-wrap">
+                        <h3>Weddings &amp; Events</h3>
+                        <span class="sub">Custom cakes, dessert tables, chocolate-favor trays.</span>
+                    </div>
+                    <span class="badge-tag">High season books fast</span>
+                    <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
                 </div>
-                <div class="svc-card-detail">
-                    <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations.</p>
-                <a href="mailto:events@keylargochocolates.com" class="lead-cta">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                <div class="photo" aria-hidden="true"></div>
+                <div class="svc-acc-detail">
+                    <div class="svc-acc-detail-inner">
+                        <div>
+                            <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations &mdash; with a Wedding &amp; Event HQ at the North Palm Beach location.</p>
+                            <a href="mailto:events@keylargochocolates.com" class="lead-cta">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="svc-acc-img">
+                            <img src="assets/dessert-table.jpg" alt="A Keys Chocolates dessert table set up for an event">
+                        </div>
+                    </div>
                 </div>
             </article>
 
-            <article class="svc-card is-collapsible">
-                <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-                <div class="svc-card-summary">
+            <article class="svc-acc">
+                <div class="svc-acc-summary" onclick="toggleSvc(this)">
                     <div class="icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
-                    <h3>Catering</h3>
+                    <div class="heading-wrap">
+                        <h3>Catering</h3>
+                        <span class="sub">Dessert spreads for parties, reunions, and offices.</span>
+                    </div>
+                    <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
                 </div>
-                <div class="svc-card-detail">
-                    <p>Dessert spreads for office events, family reunions, and Keys-area parties. Pickup from any of the three shops or delivery in the Keys corridor.</p>
-                <a href="mailto:events@keylargochocolates.com" class="lead-cta">Get a quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <div class="svc-acc-detail">
+                    <div class="svc-acc-detail-inner">
+                        <div>
+                            <p>Dessert spreads for office events, family reunions, and Keys-area parties. Pickup from any of the three shops or delivery in the Keys corridor &mdash; ice cream sundae bars, truffle platters, mini Key Lime Pies, and bespoke chocolate favors.</p>
+                            <a href="mailto:events@keylargochocolates.com" class="lead-cta">Get a quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="svc-acc-img">
+                            <img src="assets/cesar-david-icecream.jpg" alt="Keys Chocolates staff scooping ice cream — catering service">
+                        </div>
+                    </div>
                 </div>
             </article>
 
-            <article class="svc-card is-collapsible">
-                <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-                <div class="svc-card-summary">
+            <article class="svc-acc">
+                <div class="svc-acc-summary" onclick="toggleSvc(this)">
                     <div class="icon"><i class="fa-solid fa-truck-fast" aria-hidden="true"></i></div>
-                    <h3>Wholesale</h3>
+                    <div class="heading-wrap">
+                        <h3>Wholesale</h3>
+                        <span class="sub">Resorts, gift shops, and bakery accounts.</span>
+                    </div>
+                    <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
                 </div>
-                <div class="svc-card-detail">
-                    <p>Resorts, gift shops, and bakery accounts across South Florida already stock our truffles, pretzels, and Key Lime products. Open an account.</p>
-                <a href="mailto:info@keylargochocolates.com" class="lead-cta">Become a partner <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                <div class="svc-acc-detail">
+                    <div class="svc-acc-detail-inner">
+                        <div>
+                            <p>Resorts, gift shops, and bakery accounts across South Florida already stock our truffles, pretzels, and Key Lime products. Custom case pricing, white-label options for partner brands, and consistent supply out of the Key Largo and North Palm Beach kitchens.</p>
+                            <a href="mailto:info@keylargochocolates.com" class="lead-cta">Become a partner <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                        </div>
+                        <div class="svc-acc-img">
+                            <img src="assets/lola-truffle.jpg" alt="A Keys Chocolates staff member with a wholesale truffle box">
+                        </div>
+                    </div>
                 </div>
             </article>
         </div>
@@ -2059,21 +2207,21 @@
     function isMobile() { return window.innerWidth <= 768; }
     function isSmallMobile() { return window.innerWidth <= 540; }
 
-    document.querySelectorAll('.svc-card.is-collapsible').forEach(card => {
-        const summary = card.querySelector('.svc-card-summary');
-        const toggle = card.querySelector('.svc-toggle');
-        function toggleCard(e) {
-            if (!isMobile()) return;
-            // Don't collapse when an interior link/button is clicked
-            if (e && e.target.closest('a,button.svc-toggle')) {
-                if (!e.target.closest('button.svc-toggle')) return;
-            }
-            card.classList.toggle('open');
-            const expanded = card.classList.contains('open');
-            if (toggle) toggle.setAttribute('aria-label', expanded ? 'Collapse' : 'Expand');
-        }
-        if (summary) summary.addEventListener('click', toggleCard);
-        if (toggle) toggle.addEventListener('click', (e) => { e.stopPropagation(); toggleCard(e); });
+    function toggleSvc(el) {
+        // 'el' is the .svc-acc-summary; toggle its parent .svc-acc
+        const card = el.closest('.svc-acc');
+        if (!card) return;
+        const willOpen = !card.classList.contains('open');
+        // Single-open behavior — close others
+        document.querySelectorAll('.svc-acc.open').forEach(c => { if (c !== card) c.classList.remove('open'); });
+        card.classList.toggle('open', willOpen);
+        const tog = card.querySelector('.svc-toggle');
+        if (tog) tog.setAttribute('aria-label', willOpen ? 'Collapse' : 'Expand');
+    }
+    window.toggleSvc = toggleSvc;
+    // Stop button click from double-firing parent
+    document.querySelectorAll('.svc-acc .svc-toggle').forEach(btn => {
+        btn.addEventListener('click', (e) => { e.stopPropagation(); toggleSvc(btn.closest('.svc-acc-summary')); });
     });
 
     document.querySelectorAll('.sweet-card').forEach(card => {
