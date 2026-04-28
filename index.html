@@ -98,16 +98,14 @@
         /* ========== NAVIGATION ========== */
         nav.main-nav {
             position: fixed; top: 0; left: 0; right: 0; z-index: 80;
-            background: transparent;
-            transition: background 0.32s ease, box-shadow 0.32s ease, padding 0.32s ease;
-            padding: 18px 0;
+            background: var(--green-dark);
+            transition: box-shadow 0.32s ease, padding 0.32s ease;
+            padding: 16px 0;
+            box-shadow: 0 2px 12px rgba(26,77,46,0.18);
         }
         nav.main-nav.scrolled {
-            background: rgba(26,77,46,0.96);
-            box-shadow: 0 4px 22px rgba(26,77,46,0.18);
             padding: 12px 0;
-            backdrop-filter: blur(2px);
-            -webkit-backdrop-filter: blur(2px);
+            box-shadow: 0 6px 22px rgba(26,77,46,0.24);
         }
         .nav-inner {
             display: flex; align-items: center; justify-content: space-between;
@@ -118,19 +116,16 @@
         .nav-center { display: flex; gap: 32px; align-items: center; }
         .nav-center a {
             font-size: 0.95rem; font-weight: 500; color: var(--cream);
-            transition: color 0.22s; text-shadow: 0 1px 6px rgba(26,77,46,0.4);
+            transition: color 0.22s;
             white-space: nowrap;
         }
-        nav.main-nav.scrolled .nav-center a { text-shadow: none; }
         .nav-center a:hover { color: var(--pink); }
 
         .nav-right { display: flex; align-items: center; gap: 18px; }
         .nav-phone {
             display: inline-flex; align-items: center; gap: 8px;
             color: var(--cream); font-weight: 700; font-size: 0.95rem;
-            text-shadow: 0 1px 6px rgba(26,77,46,0.4);
         }
-        nav.main-nav.scrolled .nav-phone { color: var(--cream); text-shadow: none; }
         .nav-phone:hover { color: var(--pink); }
 
         .btn {
@@ -1662,7 +1657,7 @@
                 <div class="body">
                     <h3>The Truffle Box</h3>
                     <div class="sweet-detail">
-                        <p>Hard chocolate shells, decadent ganache centers &mdash; every truffle hand-rolled and dipped. Pick from a rotating menu of flavors: dark chocolate sea salt, key lime, espresso, raspberry, peanut butter, and the rest. Build your own assortment.</p>
+                        <p>Hard chocolate shells, decadent ganache centers - every truffle hand-rolled and dipped. Pick from a rotating menu of flavors: dark chocolate sea salt, key lime, espresso, raspberry, peanut butter, and the rest. Build your own assortment.</p>
                     </div>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
@@ -1804,7 +1799,7 @@
                 <div class="svc-acc-detail">
                     <div class="svc-acc-detail-inner">
                         <div>
-                            <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations &mdash; full-service event planning out of the Key Largo kitchen.</p>
+                            <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations - full-service event planning out of the Key Largo kitchen.</p>
                             <a href="mailto:events@keylargochocolates.com" class="lead-cta">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="svc-acc-img">
@@ -1826,7 +1821,7 @@
                 <div class="svc-acc-detail">
                     <div class="svc-acc-detail-inner">
                         <div>
-                            <p>Dessert spreads for office events, family reunions, and Keys-area parties. Pickup from any of the three shops or delivery in the Keys corridor &mdash; ice cream sundae bars, truffle platters, mini Key Lime Pies, and bespoke chocolate favors.</p>
+                            <p>Dessert spreads for office events, family reunions, and Keys-area parties. Pickup from any of the three shops or delivery in the Keys corridor - ice cream sundae bars, truffle platters, mini Key Lime Pies, and bespoke chocolate favors.</p>
                             <a href="mailto:events@keylargochocolates.com" class="lead-cta">Get a quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                         </div>
                         <div class="svc-acc-img">
