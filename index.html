@@ -539,120 +539,163 @@
             .about-photo .yr-badge { font-size: 1.25rem; padding: 11px 18px; }
         }
 
-        /* ========== SIGNATURE SWEETS — tiered grid ========== */
+        /* ========== SIGNATURE SWEETS — clean horizontal hero + 4-up grid ========== */
         .sweets { background: var(--mint); }
         .sweets-head {
-            display: grid; grid-template-columns: 1.4fr 1fr;
-            gap: 48px; align-items: end; margin-bottom: 48px;
+            text-align: center;
+            margin: 0 auto 56px;
+            max-width: 880px;
         }
-        .sweets-head .right {
-            text-align: right; font-size: 0.95rem;
-            color: var(--text-body); line-height: 1.6;
+        .sweets-head h2.section-h {
+            margin-bottom: 18px;
         }
-        .sweets-head .right a {
+        .sweets-head .lede {
+            font-size: 1.05rem;
+            line-height: 1.65;
+            color: var(--text-body);
+            margin: 0 auto 14px;
+            max-width: 720px;
+        }
+        .sweets-head .lede a {
             display: inline-flex; align-items: center; gap: 6px;
-            font-weight: 700; color: var(--pink); margin-top: 6px;
+            font-weight: 700; color: var(--pink-deep);
         }
-        .sweets-head .right a:hover { color: var(--pink-deep); }
-        @media (max-width: 768px) {
-            .sweets-head { grid-template-columns: 1fr; gap: 18px; }
-            .sweets-head .right { text-align: left; }
+        .sweets-head .lede a:hover { color: var(--pink); }
+
+        /* Featured Truffle Box: horizontal full-width card */
+        .sweet-featured {
+            display: grid;
+            grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+            background: var(--green-dark);
+            color: var(--cream);
+            border-radius: 22px;
+            overflow: hidden;
+            margin-bottom: 24px;
+            box-shadow: 0 14px 36px rgba(26,77,46,0.16);
+            position: relative;
+            transition: transform 0.28s ease, box-shadow 0.28s ease;
+        }
+        .sweet-featured:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 22px 48px rgba(26,77,46,0.22);
+        }
+        .sweet-featured .img-wrap {
+            min-height: 360px;
+            overflow: hidden;
+            background: var(--mint);
+        }
+        .sweet-featured .img-wrap img {
+            width: 100%; height: 100%; object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .sweet-featured:hover .img-wrap img { transform: scale(1.04); }
+        .sweet-featured .body {
+            padding: 44px 44px 44px;
+            display: flex; flex-direction: column;
+            justify-content: center;
+        }
+        .sweet-featured .badge-tag {
+            align-self: flex-start;
+            background: var(--pink);
+            color: white;
+            font-size: 0.72rem; font-weight: 700;
+            letter-spacing: 0.10em; text-transform: uppercase;
+            padding: 6px 14px;
+            border-radius: 999px;
+            margin-bottom: 18px;
+            box-shadow: 0 6px 16px rgba(228,56,128,0.32);
+        }
+        .sweet-featured h3 {
+            color: white;
+            font-size: clamp(1.9rem, 2.6vw, 2.6rem);
+            line-height: 1.08;
+            margin-bottom: 16px;
+        }
+        .sweet-featured p {
+            color: var(--cream);
+            font-size: 1.05rem;
+            line-height: 1.65;
+            font-weight: 500;
+            margin: 0;
+        }
+        @media (max-width: 820px) {
+            .sweet-featured {
+                grid-template-columns: 1fr;
+            }
+            .sweet-featured .img-wrap {
+                min-height: 0;
+                aspect-ratio: 16/10;
+            }
+            .sweet-featured .body {
+                padding: 30px 28px 32px;
+            }
         }
 
+        /* Standard cards grid (4 cards in 4-col on desktop) */
         .sweets-grid {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
-            grid-auto-rows: minmax(280px, auto);
             gap: 20px;
         }
-
         .sweet-card {
-            background: var(--cream);
+            background: white;
             border-radius: 18px;
             overflow: hidden;
             display: flex; flex-direction: column;
-            box-shadow: var(--shadow-soft);
+            box-shadow: 0 4px 14px rgba(26,77,46,0.08);
             transition: transform 0.28s ease, box-shadow 0.28s ease;
             position: relative;
         }
         .sweet-card:hover {
             transform: translateY(-4px);
-            box-shadow: var(--shadow-mid);
+            box-shadow: 0 16px 36px rgba(26,77,46,0.16);
         }
         .sweet-card .img-wrap {
-            aspect-ratio: 4/3; overflow: hidden;
+            aspect-ratio: 4/3;
+            overflow: hidden;
             background: var(--mint);
         }
         .sweet-card .img-wrap img {
             width: 100%; height: 100%; object-fit: cover;
+            display: block;
             transition: transform 0.5s ease;
         }
         .sweet-card:hover .img-wrap img { transform: scale(1.04); }
         .sweet-card .body {
-            padding: 22px 24px 24px;
+            padding: 20px 22px 24px;
             display: flex; flex-direction: column;
             flex: 1;
         }
         .sweet-card h3 {
-            font-size: 1.55rem; line-height: 1.1;
+            font-size: 1.32rem;
+            line-height: 1.15;
             margin-bottom: 8px;
         }
         .sweet-card p {
-            font-size: 0.95rem; color: var(--text-body);
+            font-size: 0.95rem;
+            color: var(--text-body);
             line-height: 1.55;
-            flex: 1;
-        }
-        .sweet-card .price {
-            margin-top: 14px;
-            font-family: 'Shrikhand', serif;
-            font-size: 1.25rem; color: var(--pink);
-        }
-        .sweet-card .price small {
-            font-family: 'Chivo'; font-weight: 500;
-            font-size: 0.8rem; color: var(--text-body);
+            margin: 0;
         }
         .sweet-card .badge {
             position: absolute; top: 14px; left: 14px;
-            background: var(--green-deep); color: var(--cream);
+            background: var(--green-deep); color: white;
             font-size: 0.7rem; font-weight: 700;
             letter-spacing: 0.10em; text-transform: uppercase;
             padding: 6px 12px; border-radius: 999px;
             z-index: 2;
+            box-shadow: 0 4px 12px rgba(26,77,46,0.20);
         }
-        .sweet-card .badge.coral { background: var(--coral); }
+        .sweet-card .badge.coral { background: var(--pink); }
         .sweet-card .badge.pink { background: var(--pink); }
-
-        /* Featured card spans 2 cols + 2 rows on desktop */
-        .sweet-card.featured {
-            grid-column: span 2;
-            grid-row: span 2;
-            background: var(--green-dark);
-            color: var(--cream);
-        }
-        .sweet-card.featured .img-wrap {
-            aspect-ratio: 16/10;
-        }
-        .sweet-card.featured h3 {
-            color: var(--cream);
-            font-size: clamp(1.8rem, 2.4vw, 2.5rem);
-        }
-        .sweet-card.featured p {
-            color: var(--cream);
-            font-size: 1.02rem;
-            font-weight: 500;
-        }
-        .sweet-card.featured .body {
-            padding: 32px 32px 36px;
-        }
-        .sweet-card.featured .price { color: #FF8FB7; }
 
         @media (max-width: 1024px) {
             .sweets-grid { grid-template-columns: repeat(2, 1fr); }
-            .sweet-card.featured { grid-column: span 2; grid-row: span 1; }
         }
         @media (max-width: 540px) {
             .sweets-grid { grid-template-columns: 1fr; }
-            .sweet-card.featured { grid-column: span 1; }
+            .sweet-card .img-wrap { aspect-ratio: 16/10; }
         }
 
         /* ========== THREE STOPS (full-bleed dark) ========== */
@@ -1679,32 +1722,25 @@
 <section class="sweets" id="sweets">
     <div class="container">
         <div class="sweets-head">
-            <div>
-                <h2 class="section-h">Hand-crafted in Key Largo. Famous from Miami to Marathon.</h2>
-            </div>
-            <div class="right">
-                Our truffles are made by hand in the back of the Key Largo shop. Our Key Lime Pie is baked the same way Bronna's grandmother taught her.
-                <a href="#stops">See both shops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-            </div>
+            <h2 class="section-h">Hand-crafted in Key Largo. Famous from Miami to Marathon.</h2>
+            <p class="lede">Our truffles are made by hand in the back of the Key Largo shop. Our Key Lime Pie is baked the same way Bronna's grandmother taught her. <a href="#stops">See both shops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
         </div>
 
-        <div class="sweets-grid">
-            <!-- Featured: Truffles — spans 2 cols, 2 rows -->
-            <article class="sweet-card featured">
-                <span class="badge pink">Hand-crafted in store</span>
-                <div class="img-wrap">
-                    <img src="assets/truffle-box.jpg" alt="An assorted box of hand-crafted Keys Chocolates truffles">
-                </div>
-                <div class="body">
-                    <h3>The Truffle Box</h3>
-                    <p>Hard chocolate shells, decadent ganache centers — every truffle hand-rolled and dipped in the back of the Key Largo shop. Pick from a rotating menu of flavors: dark chocolate sea salt, key lime, espresso, raspberry, peanut butter, and the rest. Build your own assortment.</p>
-                    <p style="margin-top:14px"><span class="price">From $16<small> &nbsp;·&nbsp; Florida Keys Sampler box</small></span></p>
-                </div>
-            <button class="sweet-toggle" aria-label="Show details"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-            </article>
+        <!-- Featured: horizontal hero card -->
+        <article class="sweet-featured">
+            <div class="img-wrap">
+                <img src="assets/truffle-box.jpg" alt="An assorted box of hand-crafted Keys Chocolates truffles">
+            </div>
+            <div class="body">
+                <span class="badge-tag">Hand-crafted in store</span>
+                <h3>The Truffle Box</h3>
+                <p>Hard chocolate shells, decadent ganache centers &mdash; every truffle hand-rolled and dipped in the back of the Key Largo shop. Pick from a rotating menu of flavors: dark chocolate sea salt, key lime, espresso, raspberry, peanut butter, and the rest. Build your own assortment.</p>
+            </div>
+        </article>
 
+        <div class="sweets-grid">
             <article class="sweet-card">
-                <span class="badge coral">Famous</span>
+                <span class="badge">Famous</span>
                 <div class="img-wrap">
                     <img src="assets/key-lime-pie-hero.jpg" alt="A whole Key Lime Pie from Keys Chocolates">
                 </div>
@@ -1712,7 +1748,6 @@
                     <h3>Key Lime Pie</h3>
                     <p>Whole pies and frozen pie bars. The recipe people drive down Highway 1 for.</p>
                 </div>
-            <button class="sweet-toggle" aria-label="Show details"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1723,7 +1758,6 @@
                     <h3>36 Flavors of Ice Cream</h3>
                     <p>Plus sorbetto, scooped at the counter all day. Cones, cups, sundaes, banana splits.</p>
                 </div>
-            <button class="sweet-toggle" aria-label="Show details"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1733,9 +1767,7 @@
                 <div class="body">
                     <h3>Chocolate Covered Pretzels</h3>
                     <p>Big pretzel rods dipped in milk or dark, then drizzled, sprinkled, or rolled.</p>
-                    <p style="margin-top:12px"><span class="price">$24.99<small> /&nbsp;tin</small></span></p>
                 </div>
-            <button class="sweet-toggle" aria-label="Show details"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1746,9 +1778,7 @@
                 <div class="body">
                     <h3>Gator Crunch</h3>
                     <p>The Florida Keys-only flavor that locals come in for.</p>
-                    <p style="margin-top:12px"><span class="price">$19.99</span></p>
                 </div>
-            <button class="sweet-toggle" aria-label="Show details"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
         </div>
     </div>
@@ -2215,16 +2245,7 @@
         btn.addEventListener('click', (e) => { e.stopPropagation(); toggleSvc(btn.closest('.svc-acc-summary')); });
     });
 
-    document.querySelectorAll('.sweet-card').forEach(card => {
-        const toggle = card.querySelector('.sweet-toggle');
-        if (!toggle) return;
-        toggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (!isSmallMobile()) return;
-            card.classList.toggle('expanded');
-            toggle.setAttribute('aria-label', card.classList.contains('expanded') ? 'Hide details' : 'Show details');
-        });
-    });
+
 
 </script>
 
