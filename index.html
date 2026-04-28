@@ -884,10 +884,14 @@
                 box-shadow: 0 14px 36px rgba(26,77,46,0.14);
             }
             .svc-acc-img {
-                display: none; /* hidden when collapsed */
+                /* same max-height transition as .svc-acc-detail so they collapse in sync */
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.42s ease;
+                aspect-ratio: auto;
             }
             .svc-acc.open .svc-acc-img {
-                display: block;
+                max-height: 500px;
                 aspect-ratio: 16/10;
             }
             .svc-acc-summary {
