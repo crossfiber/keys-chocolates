@@ -767,9 +767,9 @@
         .beyond { background: var(--cream); }
         .beyond-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-            max-width: 1200px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+            max-width: 920px;
             margin: 0 auto;
         }
         .svc-acc {
@@ -854,9 +854,7 @@
             box-shadow: 0 10px 22px rgba(228,56,128,0.30);
         }
 
-        @media (max-width: 980px) {
-            .beyond-grid { grid-template-columns: repeat(2, 1fr); max-width: 760px; }
-        }
+
 
         /* ===== MOBILE ACCORDION MODE ===== */
         @media (max-width: 720px) {
@@ -1542,6 +1540,85 @@
             .locations-hint i { color: var(--pink); }
         }
 
+
+        /* ========== WORK FOR US (Careers banner) ========== */
+        .careers { background: var(--cream); padding: 80px 0; }
+        .careers-banner {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+            gap: 0;
+            align-items: stretch;
+            background: white;
+            border: 1px solid rgba(91,184,91,0.18);
+            border-radius: 22px;
+            overflow: hidden;
+            box-shadow: 0 10px 28px rgba(26,77,46,0.10);
+            max-width: 1100px;
+            margin: 0 auto;
+            transition: transform 0.28s, box-shadow 0.28s;
+        }
+        .careers-banner:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 40px rgba(26,77,46,0.16);
+        }
+        .careers-img {
+            overflow: hidden;
+            background: var(--mint);
+            min-height: 320px;
+        }
+        .careers-img img {
+            width: 100%; height: 100%; object-fit: cover; display: block;
+            transition: transform 0.5s ease;
+        }
+        .careers-banner:hover .careers-img img { transform: scale(1.04); }
+        .careers-text {
+            padding: 36px 40px 36px 36px;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+        .careers-text .eyebrow {
+            color: var(--pink-deep);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            margin-bottom: 14px;
+            display: inline-block;
+        }
+        .careers-text h2 {
+            color: var(--green-dark);
+            font-size: clamp(1.8rem, 2.8vw, 2.4rem);
+            line-height: 1.1;
+            margin-bottom: 18px;
+        }
+        .careers-text p {
+            font-size: 1rem;
+            line-height: 1.65;
+            color: var(--text-dark);
+            margin-bottom: 22px;
+        }
+        .careers-text .lead-cta {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: var(--pink); color: white;
+            padding: 12px 22px; border-radius: 999px;
+            font-weight: 700; font-size: 0.95rem;
+            transition: all 0.22s;
+            align-self: flex-start;
+        }
+        .careers-text .lead-cta:hover {
+            background: var(--pink-deep);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(228,56,128,0.30);
+        }
+        @media (max-width: 820px) {
+            .careers { padding: 56px 0; }
+            .careers-banner {
+                grid-template-columns: 1fr;
+            }
+            .careers-img { min-height: 0; aspect-ratio: 16/10; }
+            .careers-text { padding: 28px 26px 30px; }
+        }
+
+
     </style>
 </head>
 <body>
@@ -1556,7 +1633,8 @@
             <a href="#sweets">Our Sweets</a>
             <a href="#stops">Visit Us</a>
             <a href="#story">Our Story</a>
-            <a href="#beyond">Weddings & Catering</a>
+            <a href="#beyond">Weddings</a>
+            <a href="#careers">Work for Us</a>
             <a href="#faq">FAQ</a>
         </div>
         <div class="nav-right">
@@ -1592,7 +1670,8 @@
         <a href="#sweets" onclick="closeDrawer()">Our Sweets</a>
         <a href="#stops" onclick="closeDrawer()">Visit Us</a>
         <a href="#story" onclick="closeDrawer()">Our Story</a>
-        <a href="#beyond" onclick="closeDrawer()">Weddings & Catering</a>
+        <a href="#beyond" onclick="closeDrawer()">Weddings & Events</a>
+        <a href="#careers" onclick="closeDrawer()">Work for Us</a>
         <a href="#faq" onclick="closeDrawer()">FAQ</a>
         <a href="#contact" onclick="closeDrawer()">Contact</a>
     </div>
@@ -1825,7 +1904,7 @@
         <div style="margin-bottom: 40px; max-width: 720px;">
             <span class="eyebrow">Beyond the Counter</span>
             <h2 class="section-h">When you need more than a box of truffles.</h2>
-            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, wholesale by the case for your gift shop - all handled out of the Key Largo kitchen.</p>
+            <p class="section-lede">Wedding cakes for 200, dessert tables for the corporate retreat, or wholesale by the case for your gift shop - all handled out of the Key Largo kitchen.</p>
         </div>
 
         <div class="beyond-grid">
@@ -1837,34 +1916,14 @@
                     <div class="icon"><i class="fa-solid fa-cake-candles" aria-hidden="true"></i></div>
                     <div class="heading-wrap">
                         <h3>Weddings &amp; Events</h3>
-                        <span class="sub">Custom cakes, dessert tables, chocolate-favor trays.</span>
+                        <span class="sub">Cakes, dessert tables, favors, sundae bars.</span>
                     </div>
                     <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
                 </div>
                 <div class="svc-acc-detail">
                     <div class="svc-acc-detail-inner">
-                        <p>Custom cakes, dessert tables, chocolate-favor trays, and the kind of dramatic spread that makes the photographer's job easier. Years of Keys-area weddings, corporate retreats, and milestone celebrations - full-service event planning out of the Key Largo kitchen.</p>
+                        <p>From custom wedding cakes to dessert tables, chocolate favors, and ice cream sundae bars - we handle weddings, corporate retreats, family reunions, and Keys-area parties out of the Key Largo kitchen. Pickup from either shop or delivery in the Keys corridor.</p>
                         <a href="mailto:events@keylargochocolates.com" class="lead-cta">Plan your event <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="svc-acc">
-                <div class="svc-acc-img">
-                    <img src="assets/cesar-david-icecream.jpg" alt="Keys Chocolates staff scooping ice cream - catering service">
-                </div>
-                <div class="svc-acc-summary" onclick="toggleSvc(this)">
-                    <div class="icon"><i class="fa-solid fa-utensils" aria-hidden="true"></i></div>
-                    <div class="heading-wrap">
-                        <h3>Catering</h3>
-                        <span class="sub">Dessert spreads for parties, reunions, and offices.</span>
-                    </div>
-                    <button class="svc-toggle" aria-label="Expand"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-                </div>
-                <div class="svc-acc-detail">
-                    <div class="svc-acc-detail-inner">
-                        <p>Dessert spreads for office events, family reunions, and Keys-area parties. Pickup from either shop or delivery in the Keys corridor - ice cream sundae bars, truffle platters, mini Key Lime Pies, and bespoke chocolate favors.</p>
-                        <a href="mailto:events@keylargochocolates.com" class="lead-cta">Get a quote <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </article>
@@ -1888,6 +1947,23 @@
                     </div>
                 </div>
             </article>
+        </div>
+    </div>
+</section>
+
+<!-- ========== WORK FOR US (Careers) ========== -->
+<section class="careers" id="careers">
+    <div class="container">
+        <div class="careers-banner">
+            <div class="careers-img">
+                <img src="assets/cesar-david-icecream.jpg" alt="Keys Chocolates team members behind the counter">
+            </div>
+            <div class="careers-text">
+                <span class="eyebrow">Work for Us</span>
+                <h2>Join the Keys Crew.</h2>
+                <p>We are always looking for friendly faces to scoop ice cream, dip truffles, and make somebody's day at the counter. Flexible shifts, family-run, and yes - you can eat the chocolate.</p>
+                <a href="careers.html" class="lead-cta">See open positions <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+            </div>
         </div>
     </div>
 </section>
@@ -2038,7 +2114,7 @@
                     <select id="ctype">
                         <option>General question</option>
                         <option>Wedding or event</option>
-                        <option>Catering</option>
+                        <option>Hiring / careers</option>
                         <option>Wholesale account</option>
                         <option>Press / media</option>
                     </select>
@@ -2103,6 +2179,7 @@
                     <li><a href="#stops">Islamorada</a></li>
                     <li><a href="#beyond">Weddings & Events</a></li>
                     <li><a href="#beyond">Wholesale</a></li>
+                    <li><a href="#careers">Work for Us</a></li>
                 </ul>
             </div>
             <div class="footer-col">
