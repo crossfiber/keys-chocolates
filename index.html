@@ -828,13 +828,18 @@
             display: none; /* desktop: no toggle, everything visible */
         }
         .svc-acc-detail {
-            /* Desktop default: fully visible, no collapse animation */
+            /* Desktop default: fully visible, no collapse animation, flex-grow to align CTAs */
             overflow: visible;
             max-height: none;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
         }
         .svc-acc-detail-inner {
-            display: block;
+            display: flex;
+            flex-direction: column;
             padding: 0 24px 26px;
+            flex: 1;
         }
         .svc-acc-detail p {
             font-size: 0.96rem;
@@ -851,6 +856,8 @@
             font-weight: 700;
             font-size: 0.95rem;
             transition: all 0.22s;
+            align-self: flex-start;
+            margin-top: auto;  /* pushes CTA to the bottom of the card */
         }
         .svc-acc .lead-cta:hover {
             background: var(--pink-deep);
@@ -920,6 +927,18 @@
             .svc-acc.open .svc-acc-detail { max-height: 800px; }
             .svc-acc-detail-inner {
                 padding: 6px 20px 22px;
+                display: block;
+                flex: none;
+            }
+            .svc-acc-detail {
+                display: block;
+                flex: none;
+            }
+            .svc-acc.open .svc-acc-detail {
+                display: block;
+            }
+            .svc-acc .lead-cta {
+                margin-top: 0;
             }
             .svc-acc-detail p { font-size: 0.95rem; }
         }
