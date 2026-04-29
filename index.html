@@ -617,6 +617,68 @@
         .sweet-card .badge.coral { background: var(--pink); }
         .sweet-card .badge.pink { background: var(--pink); }
 
+        /* sweet-detail flexes so the bottom pill aligns across every card */
+        .sweet-card .sweet-detail {
+            flex: 1;
+        }
+        /* Pink CTA pill - bottom-aligned, button-style, pops on every online card */
+        .sweet-card .shop-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            background: var(--pink);
+            color: white;
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.85rem;
+            transition: all 0.22s;
+            align-self: flex-start;
+            box-shadow: 0 4px 12px rgba(228,56,128,0.28);
+            white-space: nowrap;
+        }
+        .sweet-card .shop-link:hover {
+            background: var(--pink-deep);
+            transform: translateY(-1px);
+            box-shadow: 0 8px 18px rgba(228,56,128,0.36);
+        }
+        .sweet-card .shop-link .price-tag {
+            background: rgba(255,255,255,0.22);
+            color: white;
+            padding: 3px 10px;
+            border-radius: 999px;
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+        .sweet-card .shop-link .arrow {
+            display: inline-block;
+            transition: transform 0.22s;
+        }
+        .sweet-card .shop-link:hover .arrow {
+            transform: translateX(3px);
+        }
+        /* In-store-only tag - mint pill, clearly informational not clickable */
+        .sweet-card .in-store-tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 16px;
+            background: var(--mint);
+            color: var(--green-deep);
+            padding: 10px 16px;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 0.82rem;
+            border: 1.5px solid rgba(91,184,91,0.32);
+            align-self: flex-start;
+            white-space: nowrap;
+        }
+        .sweet-card .in-store-tag i {
+            color: var(--green-deep);
+            font-size: 0.78rem;
+        }
+
         /* Toggle button - only shown on mobile */
         .sweet-toggle {
             display: none;
@@ -1730,7 +1792,7 @@
                     <div class="sweet-detail">
                         <p>Hand-rolled, hand-dipped truffles in our Florida Keys flavor lineup.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/florida-keys-sampler" target="_blank" rel="noopener"><span class="price-tag">From $16</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/florida-keys-sampler" target="_blank" rel="noopener"><span class="price-tag">From $16</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1745,6 +1807,7 @@
                     <div class="sweet-detail">
                         <p>Whole pies, slices, and frozen pie bars dipped in dark chocolate.</p>
                     </div>
+                    <span class="in-store-tag"><i class="fa-solid fa-shop" aria-hidden="true"></i> In-store only</span>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1758,6 +1821,7 @@
                     <div class="sweet-detail">
                         <p>Plus sorbetto. Scooped at the counter all day, every day.</p>
                     </div>
+                    <span class="in-store-tag"><i class="fa-solid fa-shop" aria-hidden="true"></i> In-store only</span>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1771,7 +1835,7 @@
                     <div class="sweet-detail">
                         <p>Big pretzel rods dipped in milk, dark, white, or key lime chocolate.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-covered-pretzel" target="_blank" rel="noopener"><span class="price-tag">$24.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-covered-pretzel" target="_blank" rel="noopener"><span class="price-tag">$24.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1786,7 +1850,7 @@
                     <div class="sweet-detail">
                         <p>Pretzels in caramel chocolate, M&amp;Ms, and peanuts. Keys-only flavor.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/gator-crunch" target="_blank" rel="noopener"><span class="price-tag">$19.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/gator-crunch" target="_blank" rel="noopener"><span class="price-tag">$19.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1800,7 +1864,7 @@
                     <div class="sweet-detail">
                         <p>Potato chips dipped in dark chocolate, finished with sea salt.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-chippers" target="_blank" rel="noopener"><span class="price-tag">$23.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-chippers" target="_blank" rel="noopener"><span class="price-tag">$23.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1814,7 +1878,7 @@
                     <div class="sweet-detail">
                         <p>Solid chocolate Keys-shaped shells: milk, dark, white, key lime, or rum.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shell-huts-eg3Nc" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shell-huts-eg3Nc" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1828,7 +1892,7 @@
                     <div class="sweet-detail">
                         <p>Filled chocolate shells in key lime or Jamaican rum. Singles or 4-packs.</p>
                     </div>
-                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shells" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shells" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
