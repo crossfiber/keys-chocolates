@@ -562,7 +562,7 @@
 
         .sweets-grid {
             display: grid;
-            grid-template-columns: repeat(5, 1fr);
+            grid-template-columns: repeat(4, 1fr);
             gap: 18px;
         }
         .sweet-card {
@@ -624,6 +624,9 @@
 
         @media (max-width: 1100px) {
             .sweets-grid { grid-template-columns: repeat(3, 1fr); }
+        }
+        @media (max-width: 880px) {
+            .sweets-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 760px) {
             .sweets-grid { grid-template-columns: repeat(2, 1fr); }
@@ -1578,7 +1581,6 @@
         </a>
         <div class="nav-center">
             <a href="#sweets">Our Sweets</a>
-            <a href="#shop">Shop</a>
             <a href="#stops">Visit Us</a>
             <a href="#story">Our Story</a>
             <a href="#beyond">Weddings</a>
@@ -1616,7 +1618,6 @@
     </div>
     <div class="drawer-links">
         <a href="#sweets" onclick="closeDrawer()">Our Sweets</a>
-        <a href="#shop" onclick="closeDrawer()">Shop Online</a>
         <a href="#stops" onclick="closeDrawer()">Visit Us</a>
         <a href="#story" onclick="closeDrawer()">Our Story</a>
         <a href="#beyond" onclick="closeDrawer()">Weddings & Events</a>
@@ -1716,7 +1717,7 @@
     <div class="container">
         <div class="sweets-head">
             <h2 class="section-h">Hand-crafted in Key Largo. Famous from Miami to Marathon.</h2>
-            <p class="lede">Our truffles are made by hand in the back of the Key Largo shop. Our Key Lime Pie is baked the same way Bronna's grandmother taught her. <a href="#stops">See both shops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
+            <p class="lede">Truffles and pies are made by hand in the back of the Key Largo shop. The shipped items below are also available online. <a href="#stops">See both shops <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a></p>
         </div>
 
         <div class="sweets-grid">
@@ -1727,8 +1728,9 @@
                 <div class="body">
                     <h3>The Truffle Box</h3>
                     <div class="sweet-detail">
-                        <p>Hard chocolate shells, decadent ganache centers - every truffle hand-rolled and dipped. Pick from a rotating menu of flavors: dark chocolate sea salt, key lime, espresso, raspberry, peanut butter, and the rest. Build your own assortment.</p>
+                        <p>Hand-rolled, hand-dipped truffles in our Florida Keys flavor lineup.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/florida-keys-sampler" target="_blank" rel="noopener"><span class="price-tag">From $16</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1741,7 +1743,7 @@
                 <div class="body">
                     <h3>Key Lime Pie</h3>
                     <div class="sweet-detail">
-                        <p>Whole pies and frozen pie bars. The recipe people drive down Highway 1 for.</p>
+                        <p>Whole pies, slices, and frozen pie bars dipped in dark chocolate.</p>
                     </div>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
@@ -1754,7 +1756,7 @@
                 <div class="body">
                     <h3>36 Flavors of Ice Cream</h3>
                     <div class="sweet-detail">
-                        <p>Plus sorbetto, scooped at the counter all day. Cones, cups, sundaes, banana splits.</p>
+                        <p>Plus sorbetto. Scooped at the counter all day, every day.</p>
                     </div>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
@@ -1762,13 +1764,14 @@
 
             <article class="sweet-card">
                 <div class="img-wrap">
-                    <img src="assets/chocolate-display.jpg" alt="Chocolate covered pretzels and confections">
+                    <img src="assets/shop-pretzels.jpg" alt="Chocolate Covered Pretzels - 1 lb tin">
                 </div>
                 <div class="body">
                     <h3>Chocolate Covered Pretzels</h3>
                     <div class="sweet-detail">
-                        <p>Big pretzel rods dipped in milk or dark, then drizzled, sprinkled, or rolled.</p>
+                        <p>Big pretzel rods dipped in milk, dark, white, or key lime chocolate.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-covered-pretzel" target="_blank" rel="noopener"><span class="price-tag">$24.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
                 <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
@@ -1776,116 +1779,60 @@
             <article class="sweet-card">
                 <span class="badge">Local Favorite</span>
                 <div class="img-wrap">
-                    <img src="assets/chocolate-closeup.jpg" alt="Gator Crunch - a Florida Keys local-favorite chocolate">
-                </div>
-                <div class="body">
-                    <h3>Gator Crunch</h3>
-                    <div class="sweet-detail">
-                        <p>The Florida Keys-only flavor that locals come in for.</p>
-                    </div>
-                </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
-            </article>
-        </div>
-    </div>
-</section>
-
-<!-- ========== SHOP ONLINE ========== -->
-<section class="shop" id="shop">
-    <div class="container">
-        <div class="shop-head">
-            <span class="eyebrow">Order Online</span>
-            <h2 class="section-h">Have a piece of the Keys shipped to your door.</h2>
-            <p class="lede">Our chocolate, candy, and gift assortments ship anywhere in the continental US. Ice cream and frozen Key Lime Pie bars are pickup only at the shops.</p>
-        </div>
-
-        <div class="shop-grid">
-            <article class="shop-card">
-                <div class="img-wrap">
-                    <img src="assets/shop-sampler.jpg" alt="Florida Keys Sampler truffle box from Keys Chocolates">
-                </div>
-                <div class="body">
-                    <h3>Florida Keys Sampler</h3>
-                    <p>Hand-crafted truffles in Florida flavors: key lime, pina colada, mango, raspberry flamingo, cafe con leche, and more.</p>
-                    <div class="price-row">
-                        <span class="price">From $16</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/florida-keys-sampler" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="shop-card">
-                <div class="img-wrap">
-                    <img src="assets/shop-pretzels.jpg" alt="Chocolate Covered Pretzels - 1 lb tin">
-                </div>
-                <div class="body">
-                    <h3>Chocolate Covered Pretzels</h3>
-                    <p>Salty pretzel rods in milk, dark, white, or key lime chocolate. About 15 pretzels per pound.</p>
-                    <div class="price-row">
-                        <span class="price">$24.99</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/chocolate-covered-pretzel" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                    </div>
-                </div>
-            </article>
-
-            <article class="shop-card">
-                <div class="img-wrap">
                     <img src="assets/shop-gator.jpg" alt="Gator Crunch - 1 lb of pretzels with caramel chocolate M&Ms and peanuts">
                 </div>
                 <div class="body">
                     <h3>Gator Crunch</h3>
-                    <p>Crunchy pretzels in caramel and chocolate, topped with M&amp;Ms and peanuts. The Florida Keys-only flavor.</p>
-                    <div class="price-row">
-                        <span class="price">$19.99</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/gator-crunch" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <div class="sweet-detail">
+                        <p>Pretzels in caramel chocolate, M&amp;Ms, and peanuts. Keys-only flavor.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/gator-crunch" target="_blank" rel="noopener"><span class="price-tag">$19.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
+                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
-            <article class="shop-card">
+            <article class="sweet-card">
                 <div class="img-wrap">
                     <img src="assets/shop-chippers.jpg" alt="Chocolate Chippers - sea-salted dark chocolate dipped potato chips">
                 </div>
                 <div class="body">
                     <h3>Chocolate Chippers</h3>
-                    <p>Salty potato chips dipped in premium dark chocolate, finished with a dash of sea salt. 1 lb.</p>
-                    <div class="price-row">
-                        <span class="price">$23.99</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/chocolate-chippers" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <div class="sweet-detail">
+                        <p>Potato chips dipped in dark chocolate, finished with sea salt.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-chippers" target="_blank" rel="noopener"><span class="price-tag">$23.99</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
+                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
-            <article class="shop-card">
+            <article class="sweet-card">
                 <div class="img-wrap">
                     <img src="assets/shop-shell-huts.jpg" alt="Chocolate Shell Huts - solid 4 oz chocolate shells">
                 </div>
                 <div class="body">
                     <h3>Chocolate Shell Huts</h3>
-                    <p>Solid 4 oz chocolate shells in milk, dark, white, key lime, or Jamaican rum.</p>
-                    <div class="price-row">
-                        <span class="price">$9 / $32 4-pack</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/chocolate-shell-huts-eg3Nc" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <div class="sweet-detail">
+                        <p>Solid chocolate Keys-shaped shells: milk, dark, white, key lime, or rum.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shell-huts-eg3Nc" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
+                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
-            <article class="shop-card">
+            <article class="sweet-card">
                 <div class="img-wrap">
                     <img src="assets/shop-chocolate-shells.jpg" alt="Chocolate Shells with key lime or Jamaican rum flavoring">
                 </div>
                 <div class="body">
                     <h3>Chocolate Shells</h3>
-                    <p>Premium chocolate shells with key lime or Jamaican rum flavoring. Single boxes or variety 4-packs.</p>
-                    <div class="price-row">
-                        <span class="price">From $9</span>
-                        <a class="shop-cta" href="https://www.keylargochocolates.com/shop/p/chocolate-shells" target="_blank" rel="noopener">Shop <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+                    <div class="sweet-detail">
+                        <p>Filled chocolate shells in key lime or Jamaican rum. Singles or 4-packs.</p>
                     </div>
+                    <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shells" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
                 </div>
+                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
         </div>
-
-        <p class="shop-foot">Looking for a wedding favor, wholesale order, or something custom? <a href="#beyond">See our event &amp; wholesale options</a>.</p>
     </div>
 </section>
 
@@ -2216,12 +2163,12 @@
             <div class="footer-col">
                 <h4>Shop</h4>
                 <ul>
-                    <li><a href="#shop">Florida Keys Sampler</a></li>
-                    <li><a href="#shop">Chocolate Pretzels</a></li>
-                    <li><a href="#shop">Gator Crunch</a></li>
-                    <li><a href="#shop">Chocolate Chippers</a></li>
+                    <li><a href="#sweets">Truffles</a></li>
                     <li><a href="#sweets">Key Lime Pie</a></li>
                     <li><a href="#sweets">Ice Cream</a></li>
+                    <li><a href="#sweets">Chocolate Pretzels</a></li>
+                    <li><a href="#sweets">Gator Crunch</a></li>
+                    <li><a href="#sweets">Florida Keys Sampler</a></li>
                 </ul>
             </div>
             <div class="footer-col">
