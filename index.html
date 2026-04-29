@@ -694,42 +694,47 @@
             .sweets-grid { grid-template-columns: repeat(2, 1fr); }
         }
         @media (max-width: 600px) {
-            .sweets-grid { grid-template-columns: 1fr; gap: 14px; }
-            .sweet-card .img-wrap { aspect-ratio: 16/10; }
-            .sweet-card .body { padding: 16px 20px 56px; cursor: pointer; user-select: none; }
-            .sweet-card h3 { font-size: 1.3rem; margin-bottom: 0; }
-            .sweet-card .sweet-detail {
-                max-height: 0;
-                overflow: hidden;
-                opacity: 0;
-                transition: max-height 0.34s ease, opacity 0.22s ease, margin 0.34s ease;
-                margin-top: 0;
+            .sweets-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 12px;
             }
-            .sweet-card.expanded .sweet-detail {
-                max-height: 360px;
-                opacity: 1;
-                margin-top: 10px;
+            .sweet-card .img-wrap { aspect-ratio: 4/3; }
+            .sweet-card .body { padding: 14px 14px 16px; }
+            .sweet-card h3 {
+                font-size: 1rem;
+                line-height: 1.15;
+                margin-bottom: 6px;
             }
-            .sweet-toggle {
-                display: inline-flex;
-                position: absolute;
-                bottom: 14px; right: 14px;
-                width: 38px; height: 38px;
-                border-radius: 50%;
-                background: var(--pink);
-                color: white;
-                font-size: 0.92rem;
-                align-items: center; justify-content: center;
-                transition: transform 0.32s ease, background 0.22s;
-                z-index: 3;
-                border: none;
-                box-shadow: 0 6px 14px rgba(228,56,128,0.32);
+            .sweet-card .sweet-detail p {
+                font-size: 0.82rem;
+                line-height: 1.45;
             }
-            .sweet-card.expanded .sweet-toggle {
-                background: var(--green-dark);
-                transform: rotate(45deg);
-                box-shadow: 0 6px 14px rgba(26,77,46,0.30);
+            .sweet-card .badge {
+                top: 10px; left: 10px;
+                font-size: 0.6rem;
+                padding: 4px 9px;
+                letter-spacing: 0.08em;
             }
+            /* Tighter pills for narrower mobile cards */
+            .sweet-card .shop-link {
+                margin-top: 12px;
+                padding: 8px 12px;
+                font-size: 0.74rem;
+                gap: 6px;
+                flex-wrap: wrap;
+            }
+            .sweet-card .shop-link .price-tag {
+                font-size: 0.68rem;
+                padding: 2px 7px;
+            }
+            .sweet-card .in-store-tag {
+                margin-top: 12px;
+                padding: 8px 12px;
+                font-size: 0.72rem;
+                gap: 6px;
+            }
+            /* Toggle button removed entirely on mobile - descriptions always visible */
+            .sweet-toggle { display: none !important; }
         }
 
         /* ========== THREE STOPS (full-bleed dark) ========== */
@@ -1794,7 +1799,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/florida-keys-sampler" target="_blank" rel="noopener"><span class="price-tag">From $16</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1809,7 +1813,6 @@
                     </div>
                     <span class="in-store-tag"><i class="fa-solid fa-shop" aria-hidden="true"></i> In-store only</span>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1823,7 +1826,6 @@
                     </div>
                     <span class="in-store-tag"><i class="fa-solid fa-shop" aria-hidden="true"></i> In-store only</span>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1837,7 +1839,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-covered-pretzel" target="_blank" rel="noopener"><span class="price-tag">$24.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1852,7 +1853,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/gator-crunch" target="_blank" rel="noopener"><span class="price-tag">$19.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1866,7 +1866,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-chippers" target="_blank" rel="noopener"><span class="price-tag">$23.99</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1880,7 +1879,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shell-huts-eg3Nc" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
 
             <article class="sweet-card">
@@ -1894,7 +1892,6 @@
                     </div>
                     <a class="shop-link" href="https://www.keylargochocolates.com/shop/p/chocolate-shells" target="_blank" rel="noopener"><span class="price-tag">From $9</span> Order online <span class="arrow"><i class="fa-solid fa-arrow-right" aria-hidden="true"></i></span></a>
                 </div>
-                <button class="sweet-toggle" aria-label="Show description"><i class="fa-solid fa-plus" aria-hidden="true"></i></button>
             </article>
         </div>
     </div>
@@ -2339,25 +2336,6 @@
     // ===== Mobile-only accordion: Beyond the Counter (svc-card) + Sweets (sweet-card) =====
     function isMobile() { return window.innerWidth <= 768; }
     function isSmallMobile() { return window.innerWidth <= 540; }
-
-    // ===== Mobile-only sweet card expand/collapse =====
-    function isSweetMobile() { return window.matchMedia('(max-width: 600px)').matches; }
-    document.querySelectorAll('.sweet-card').forEach(card => {
-        const tog = card.querySelector('.sweet-toggle');
-        function toggleCard(e) {
-            if (!isSweetMobile()) return;
-            if (e && e.target && e.target.closest('a')) return;
-            // Single-open
-            document.querySelectorAll('.sweet-card.expanded').forEach(c => {
-                if (c !== card) c.classList.remove('expanded');
-            });
-            const willOpen = !card.classList.contains('expanded');
-            card.classList.toggle('expanded', willOpen);
-            if (tog) tog.setAttribute('aria-label', willOpen ? 'Hide description' : 'Show description');
-        }
-        card.addEventListener('click', toggleCard);
-        if (tog) tog.addEventListener('click', (e) => { e.stopPropagation(); toggleCard(e); });
-    });
 
     function toggleSvc(el) {
         // Mobile-only behavior - desktop shows everything by default
